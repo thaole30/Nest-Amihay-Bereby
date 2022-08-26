@@ -9,12 +9,12 @@ export class ItemsController {
     constructor(private readonly itemService: ItemsService){}
 
   @Get()
-  findAll(): Item[] {
+  async findAll(): Promise<Item[]> {
     return this.itemService.findAll();
   }
 
   @Get(':id')
-  findOne(@Param('id') id): Item {
+  async findOne(@Param('id') id): Promise<Item> {
     return this.itemService.findOne(id);
   }
 
